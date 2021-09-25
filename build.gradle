@@ -1,53 +1,23 @@
-/*
- * FastJ Java Template Build Script
- *
- * Thank you for choosing FastJ! This is a Gradle-based build script that will help you manage your
- * project with ease. */
-
 plugins {
-    /* To begin with, Gradle needs the 'java' plugin so that it knows this is a Java project. */
     id 'java'
-    /* This template is for an application -- we'll need this plugin to make sure Gradle knows
-     * this, too. */
     id 'application'
-    /* To create distributable files for your game, we use this jlink plugin. */
     id 'org.beryx.jlink' version '2.24.0'
 }
 
-/* Your project's group name goes here.
- * This should be a domain name you own.
- * If you don't own a domain, don't worry! You can always set this to 'io.github.yourgithubusername'. */
-group('io.github.yourgithubusername')
-
-/* Your project's version.
- * When you want to distribute a new version of your project, always make sure to update the
- * project version. */
+group('io.github.lucasstarsz')
 version('0.0.1')
-
-/* Your project's description.
- * Give a one or two sentence description of your project -- if you publish it somewhere, you'll be
- * able to use it. */
-description('A Java Template for FastJ.')
-
-/* Here, we specify where the main entrypoint of the project.
- * Feel free to change these as needed. */
-application.getMainClass().set('tech.fastj.template.Game')
-application.mainModule.set('fastj.templategame')
+description('A model creation and editing tool for FastJ.')
+application.getMainClass().set('tech.fastj.modeleditor.Main')
+application.mainModule.set('fastj.modeleditor')
 
 
-/* When you add a dependency on another project (like FastJ), you need to add specify where the
- * dependencies are coming from!
- * FastJ is hosted on Maven Central and Jitpack.io, so we"ll add the jitpack.io dependency here. */
 repositories.maven {
     url('https://jitpack.io/')
 }
 repositories.mavenCentral()
-
-/* The dependency for FastJ, the game engine this template depends on. */
-dependencies.implementation('com.github.fastjengine:FastJ:1.5.0')
+dependencies.implementation('com.github.fastjengine:FastJ:1.6.0-SNAPSHOT')
 
 
-/* JLink is used to configure the executables and other distributions for your project. */
 jlink {
 
     options.addAll(
@@ -64,7 +34,6 @@ jlink {
 
     jpackage {
 
-        /* Use this to define the path of the icons for your project. */
         def iconPath = 'project-resources/fastj_icon'
         def currentOs = org.gradle.internal.os.OperatingSystem.current()
 

@@ -1,3 +1,3 @@
-module fastj.templategame {
+module fastj.modeleditor {
     requires fastj.library;
 }
